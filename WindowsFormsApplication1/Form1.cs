@@ -16,6 +16,7 @@ namespace WindowsFormsApplication1
         string img1 = @"C:\Users\Usuario\Desktop\FERRANDO_TP\WindowsFormsApplication1\img\ojocerrado.png";
         string img2 = @"C:\Users\Usuario\Desktop\FERRANDO_TP\WindowsFormsApplication1\img\ojoabierto.png";
 
+
         public Form1()
         {
             InitializeComponent();
