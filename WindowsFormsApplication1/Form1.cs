@@ -13,8 +13,8 @@ namespace WindowsFormsApplication1
     public partial class Form1 : Form
     {
         bool fa = false;
-        string img1 = @"C:\Users\Usuario\Desktop\FERRANDO_TP\img\ojocerrado.png";
-        string img2 = @"C:\Users\Usuario\Desktop\FERRANDO_TP\img\ojoabierto.png";
+        string img1 = @"C:\Users\Usuario\Desktop\FERRANDO_TP\WindowsFormsApplication1\img\ojocerrado.png";
+        string img2 = @"C:\Users\Usuario\Desktop\FERRANDO_TP\WindowsFormsApplication1\img\ojoabierto.png";
 
         public Form1()
         {
