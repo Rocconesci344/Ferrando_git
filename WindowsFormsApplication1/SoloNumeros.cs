@@ -9,7 +9,7 @@ using System.Xml.Schema;
 namespace WindowsFormsApplication1
 {
     public static class SoloNumeros
-    {
+    { 
         public static bool ValidarNum(KeyPressEventArgs e)
         {
             if (char.ToString(e.KeyChar) == "," || char.IsDigit(e.KeyChar) )
