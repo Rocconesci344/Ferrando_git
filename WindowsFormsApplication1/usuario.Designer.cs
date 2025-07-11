@@ -34,10 +34,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lbl_tipo_us = new System.Windows.Forms.Label();
+            this.lblDNI = new System.Windows.Forms.Label();
             this.btnPerfil = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -45,6 +45,8 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -61,6 +63,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(937, 37);
             this.panel1.TabIndex = 8;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label5
             // 
@@ -102,51 +105,55 @@
             this.pictureBox3.TabIndex = 10;
             this.pictureBox3.TabStop = false;
             // 
-            // label1
+            // lblNombre
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Navy;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(21, 147);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Nombre:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.BackColor = System.Drawing.Color.Navy;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F);
+            this.lblNombre.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblNombre.Location = new System.Drawing.Point(21, 150);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(59, 16);
+            this.lblNombre.TabIndex = 11;
+            this.lblNombre.Text = "Nombre:";
+            this.lblNombre.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label2
+            // lblEmail
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Navy;
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(21, 178);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Correo:";
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.BackColor = System.Drawing.Color.Navy;
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F);
+            this.lblEmail.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblEmail.Location = new System.Drawing.Point(21, 179);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(51, 16);
+            this.lblEmail.TabIndex = 12;
+            this.lblEmail.Text = "Correo:";
             // 
-            // label3
+            // lbl_tipo_us
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Navy;
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(21, 203);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 13);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Contraseña:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.lbl_tipo_us.AutoSize = true;
+            this.lbl_tipo_us.BackColor = System.Drawing.Color.Navy;
+            this.lbl_tipo_us.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F);
+            this.lbl_tipo_us.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbl_tipo_us.Location = new System.Drawing.Point(21, 208);
+            this.lbl_tipo_us.Name = "lbl_tipo_us";
+            this.lbl_tipo_us.Size = new System.Drawing.Size(44, 16);
+            this.lbl_tipo_us.TabIndex = 13;
+            this.lbl_tipo_us.Text = "Tu rol:";
+            this.lbl_tipo_us.Click += new System.EventHandler(this.label3_Click);
             // 
-            // label4
+            // lblDNI
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Navy;
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(21, 120);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "DNI:";
+            this.lblDNI.AutoSize = true;
+            this.lblDNI.BackColor = System.Drawing.Color.Navy;
+            this.lblDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F);
+            this.lblDNI.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblDNI.Location = new System.Drawing.Point(21, 121);
+            this.lblDNI.Name = "lblDNI";
+            this.lblDNI.Size = new System.Drawing.Size(33, 16);
+            this.lblDNI.TabIndex = 14;
+            this.lblDNI.Text = "DNI:";
             // 
             // btnPerfil
             // 
@@ -208,15 +215,36 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Navy;
-            this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.pictureBox3);
+            this.panel2.Controls.Add(this.lblDNI);
+            this.panel2.Controls.Add(this.lblEmail);
+            this.panel2.Controls.Add(this.lblNombre);
+            this.panel2.Controls.Add(this.lbl_tipo_us);
             this.panel2.Location = new System.Drawing.Point(317, 71);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(167, 225);
+            this.panel2.Size = new System.Drawing.Size(266, 256);
             this.panel2.TabIndex = 22;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F);
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(21, 236);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 16);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Contraseña:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(519, 303);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(64, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Cambiar";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // usuario
             // 
@@ -224,6 +252,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(788, 394);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -259,10 +288,10 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label lbl_tipo_us;
+        private System.Windows.Forms.Label lblDNI;
         private System.Windows.Forms.Button btnPerfil;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
@@ -270,5 +299,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }

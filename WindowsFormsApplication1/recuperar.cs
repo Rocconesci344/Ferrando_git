@@ -15,16 +15,36 @@ namespace WindowsFormsApplication1
 {
     public partial class recuperar : Form
     {
-        private bool pswnew; //hago a este bool privado (siempre vienen privadas, pero porlas lo vuelvo a poner jej)
+        registroUsuariosFunciones registroUsuariosFunciones = new registroUsuariosFunciones();
 
-        public bool Pswnew //hago una propiedad de la contraseña nueva para que sea publica, para que no haya problemas con la instancia 
+
+        private string newpsw;
+        string mail;
+
+        private bool boolpsw; //hago a este bool privado (siempre vienen privadas, pero porlas lo vuelvo a poner jej)
+
+        public bool Boolpsw //hago una propiedad de la contraseña nueva para que sea publica, para que no haya problemas con la instancia 
         {
-            get { return pswnew; } //devuelve el valor de la variable
-            set { pswnew = value; } // le da un valor a la variable
+            get { return boolpsw; } //devuelve el valor de la variable
+            set { boolpsw = value; }
         }
+        public string Newpsw //hago una propiedad de la contraseña nueva para que sea publica, para que no haya problemas con la instancia 
+        {
+            get { return newpsw; } //devuelve el valor de la variable
+            set { newpsw = value; }
+        }
+        public string Textbox1_recuperar //aca hago una propiedad para el textbox2, asi este le pasa las intancias al formulario recuperar y asi cuando vuelva del formulario recuperar ya tenga la contraseña puesta
+        {
+            get { return textBox1.Text; } //devuelve el valor de la variable
+        }
+
         public static class EstadoRecuperacion //hace una clase
         {
-            public static bool Pswnew = false; //aca hace que la propiedad se haga falsa para que esta no tenga problemas con el form1 cuando el form recuperar no se abre
+            public static bool boolpsw = false; //aca hace que la propiedad se haga falsa para que esta no tenga problemas con el form1 cuando el form recuperar no se abre
+        }
+        public static class Contraseñanueva
+        {
+            public static string newpsw = "12345!!ARGentinaTecnica2";
         }
 
         Form1 form1; //guardo  el formulario form como form1 en este formulario
@@ -32,7 +52,8 @@ namespace WindowsFormsApplication1
         public recuperar()
         {
             InitializeComponent();
-            pswnew = false; //lo inicio siendo falso, porque necesito eso
+            boolpsw = false; //lo inicio siendo falso, porque necesito eso
+            mail = textBox1.Text;
         }
         public recuperar(Form1 F1Ins)
         {
@@ -50,14 +71,15 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            if (pswnew == true) //valido si la variable de tipo bool que cree es verdadera
+            if (boolpsw == true) //valido si la variable de tipo bool que cree es verdadera
             {
+                registroUsuariosFunciones.CAMBIOCONTRASEÑA(mail);
                 Form1 form1 = new Form1(this);
                 form1.Show();
                 this.Hide();
-                form1.txtTextbox = "12345!!ARGentinaTecnica2"; //paso la contraseña hecha automatica al textbox2 para que no la tenga que escribir
-                EstadoRecuperacion.Pswnew = true; //llamo a la clase y a la propiedad para que sean verdadera, asi se pasa la contraseña al form1
+                form1.txtTextbox = newpsw; //paso la contraseña hecha automatica al textbox2 para que no la tenga que escribir
+                EstadoRecuperacion.boolpsw = true; //llamo a la clase y a la propiedad para que sean verdadera, asi se pasa la contraseña al form1
+
             }
             else 
             {
@@ -80,25 +102,16 @@ namespace WindowsFormsApplication1
 
                 MailAddress mail = new MailAddress(correo);//valida si el texto de la variable correo este bien puesta
                 errorProvider1.SetError(textBox1, "");
-                pswnew = true;
+                boolpsw = true;
 
             }
             catch (Exception ex) //tira un error o excepcion si el error es muy grave
             {
                 errorProvider1.SetError(textBox1, "Error: " + ex.Message);
-                pswnew = false;
+                boolpsw = false;
 
             }
         }
-
-        private void recuperar_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
     }
 }

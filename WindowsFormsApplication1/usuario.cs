@@ -13,21 +13,43 @@ namespace WindowsFormsApplication1
     public partial class usuario : Form
     {
         registroUsuariosFunciones registroUsuariosFunciones = new registroUsuariosFunciones();
+        DataTable datos;
+
         public usuario()
         {
             InitializeComponent();
+            registroUsuariosFunciones = new registroUsuariosFunciones();
+            datos = registroUsuariosFunciones.DATOSUSUARIO();
         }
-        Form1 form1;
-        public usuario(Form1 frmins)
+
+
+        Form1 form1 = new Form1();
+        public usuario(Form1 F1Ins)
         {
             InitializeComponent();
-            form1 = frmins;
-           
+            form1 = F1Ins;
         }
+
+
 
         private void usuario_Load(object sender, EventArgs e)
         {
-            label1.Text = "Usuario: " && ;
+            if (datos.Rows.Count > 0)
+            {
+                DataRow fila = datos.Rows[0];
+                string dni = fila["DNI"].ToString();
+                string nombre = fila["nombre"].ToString();
+                string apellido = fila["apellido"].ToString();
+                string email = fila["email"].ToString();
+                string usuario = fila["usuario"].ToString();
+                string tipo = fila["descripcion"].ToString();
+
+                // Por ejemplo, mostrar en labels
+                lblDNI.Text = "DNI: " + dni;
+                lblEmail.Text = "Correo: " + email;
+                lblNombre.Text = "Nombre y apellido:" + nombre + " " + apellido;
+                lbl_tipo_us.Text = "Rol: " + tipo;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -50,6 +72,9 @@ namespace WindowsFormsApplication1
 
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -17,8 +18,8 @@ namespace WindowsFormsApplication1
     {
         registroUsuariosFunciones registroUsuariosFunciones = new registroUsuariosFunciones();
         bool ftchange = false; //la variable ftchange es para validar el cambio de fotos 
-        string img1 = @"C:\Users\Usuario\Downloads\Mercedes\Mercedes\Ferrando_git-master\img\ojocerrado.png";
-        string img2 = @"C:\Users\Usuario\Downloads\Mercedes\Mercedes\Ferrando_git-master\img\ojoabierto.png";
+        string img1 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "img", "ojocerrado.png");
+        string img2 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "img", "ojoabierto.png");
         
 
         bool pt = false; //la variable pt es para validar que el patron se esta cumpliendo
@@ -29,6 +30,7 @@ namespace WindowsFormsApplication1
         public Form1() 
         {
             InitializeComponent();
+
         }
 
         public Form1(recuperar RecIns) //abro la instancia del recuperar en el form1
@@ -39,7 +41,7 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-        
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -106,6 +108,10 @@ namespace WindowsFormsApplication1
             get { return textBox2.Text; } //devuelve el valor de la variable
             set { textBox2.Text = value; } // le da un valor a la variable
         }
-    
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
