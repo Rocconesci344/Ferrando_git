@@ -19,7 +19,6 @@ namespace WindowsFormsApplication1
 
 
         private string newpsw;
-        string mail;
 
         private bool boolpsw; //hago a este bool privado (siempre vienen privadas, pero porlas lo vuelvo a poner jej)
 
@@ -53,7 +52,7 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
             boolpsw = false; //lo inicio siendo falso, porque necesito eso
-            mail = textBox1.Text;
+            //mail = textBox1.Text;
         }
         public recuperar(Form1 F1Ins)
         {
@@ -73,7 +72,7 @@ namespace WindowsFormsApplication1
         {
             if (boolpsw == true) //valido si la variable de tipo bool que cree es verdadera
             {
-                registroUsuariosFunciones.CAMBIOCONTRASEÑA(mail);
+                registroUsuariosFunciones.CAMBIOCONTRASEÑA();
                 Form1 form1 = new Form1(this);
                 form1.Show();
                 this.Hide();

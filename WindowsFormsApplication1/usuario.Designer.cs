@@ -45,8 +45,8 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_volver = new System.Windows.Forms.Button();
+            this.btn_cerrarsesion = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -63,7 +63,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(937, 37);
             this.panel1.TabIndex = 8;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label5
             // 
@@ -102,8 +101,10 @@
             this.pictureBox3.Location = new System.Drawing.Point(36, 14);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(94, 87);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 10;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // lblNombre
             // 
@@ -116,7 +117,6 @@
             this.lblNombre.Size = new System.Drawing.Size(59, 16);
             this.lblNombre.TabIndex = 11;
             this.lblNombre.Text = "Nombre:";
-            this.lblNombre.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblEmail
             // 
@@ -141,7 +141,6 @@
             this.lbl_tipo_us.Size = new System.Drawing.Size(44, 16);
             this.lbl_tipo_us.TabIndex = 13;
             this.lbl_tipo_us.Text = "Tu rol:";
-            this.lbl_tipo_us.Click += new System.EventHandler(this.label3_Click);
             // 
             // lblDNI
             // 
@@ -215,7 +214,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Navy;
-            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.pictureBox3);
             this.panel2.Controls.Add(this.lblDNI);
             this.panel2.Controls.Add(this.lblEmail);
@@ -223,28 +221,28 @@
             this.panel2.Controls.Add(this.lbl_tipo_us);
             this.panel2.Location = new System.Drawing.Point(317, 71);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(266, 256);
+            this.panel2.Size = new System.Drawing.Size(339, 256);
             this.panel2.TabIndex = 22;
             // 
-            // label1
+            // btn_volver
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F);
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(21, 236);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 16);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Contraseña:";
+            this.btn_volver.Location = new System.Drawing.Point(13, 358);
+            this.btn_volver.Name = "btn_volver";
+            this.btn_volver.Size = new System.Drawing.Size(75, 23);
+            this.btn_volver.TabIndex = 24;
+            this.btn_volver.Text = "volver";
+            this.btn_volver.UseVisualStyleBackColor = true;
+            this.btn_volver.Click += new System.EventHandler(this.btn_volver_Click);
             // 
-            // button1
+            // btn_cerrarsesion
             // 
-            this.button1.Location = new System.Drawing.Point(519, 303);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(64, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Cambiar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_cerrarsesion.Location = new System.Drawing.Point(675, 358);
+            this.btn_cerrarsesion.Name = "btn_cerrarsesion";
+            this.btn_cerrarsesion.Size = new System.Drawing.Size(88, 23);
+            this.btn_cerrarsesion.TabIndex = 25;
+            this.btn_cerrarsesion.Text = "Cerrar sesion";
+            this.btn_cerrarsesion.UseVisualStyleBackColor = true;
+            this.btn_cerrarsesion.Click += new System.EventHandler(this.btn_cerrarsesion_Click);
             // 
             // usuario
             // 
@@ -252,7 +250,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(788, 394);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_cerrarsesion);
+            this.Controls.Add(this.btn_volver);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -299,7 +298,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_volver;
+        private System.Windows.Forms.Button btn_cerrarsesion;
     }
 }

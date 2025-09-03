@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,28 +16,21 @@ namespace WindowsFormsApplication1
     {
         registroUsuariosFunciones registroUsuariosFunciones = new registroUsuariosFunciones();
         DataTable datos;
-
         public usuario()
         {
             InitializeComponent();
-            registroUsuariosFunciones = new registroUsuariosFunciones();
             datos = registroUsuariosFunciones.DATOSUSUARIO();
-        }
 
-
-        Form1 form1 = new Form1();
-        public usuario(Form1 F1Ins)
-        {
-            InitializeComponent();
-            form1 = F1Ins;
         }
 
 
 
         private void usuario_Load(object sender, EventArgs e)
         {
+
             if (datos.Rows.Count > 0)
             {
+                
                 DataRow fila = datos.Rows[0];
                 string dni = fila["DNI"].ToString();
                 string nombre = fila["nombre"].ToString();
@@ -45,9 +40,18 @@ namespace WindowsFormsApplication1
                 string tipo = fila["descripcion"].ToString();
 
                 // Por ejemplo, mostrar en labels
+                if (GuardadoSesion.Foto_Perfil != null)
+                {
+                    pictureBox3.ImageLocation = GuardadoSesion.Foto_Perfil;
+                }
+                else
+                {
+
+                    pictureBox3.ImageLocation = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "img", "user.png");
+                }
                 lblDNI.Text = "DNI: " + dni;
                 lblEmail.Text = "Correo: " + email;
-                lblNombre.Text = "Nombre y apellido:" + nombre + " " + apellido;
+                lblNombre.Text = "Nombre y apellido: " + nombre + " " + apellido;
                 lbl_tipo_us.Text = "Rol: " + tipo;
             }
         }
@@ -63,18 +67,24 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void btn_volver_Click(object sender, EventArgs e)
         {
-
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            inicio FRMinicio = new inicio();
+            FRMinicio.Show();
+            this.Close();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void btn_cerrarsesion_Click(object sender, EventArgs e)
         {
+            Form1 frm = new Form1();
+            frm.Show();
+            this.Close();
+        }
 
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            
+            
         }
     }
 }
