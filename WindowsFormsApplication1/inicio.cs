@@ -37,5 +37,10 @@ namespace WindowsFormsApplication1
             permisos.Show();
             this.Close();
         }
+
+        private void inicio_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

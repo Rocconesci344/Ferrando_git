@@ -158,7 +158,12 @@ namespace WindowsFormsApplication1
                     INNER JOIN tipo_usuario ON usuario.id_tipo_user = tipo_usuario.id_tipo_usuario 
                     WHERE usuario.id_usuario = ?";
                     break;
-
+                case 5:
+                    stn = @"usuario.usuario, tipo_usuario.descripcion
+                    FROM (tipo_usuario
+                    INNER JOIN  usuario ON usuario.id_tipo_user = tipo_usuario.id_tipo_usuario
+                    WHERE usuario.id_usuario = ?";
+                    break;
                 default:
                     MessageBox.Show("Tipo de usuario no reconocido.");
                     return dtProyects;

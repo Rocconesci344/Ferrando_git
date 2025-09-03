@@ -27,10 +27,26 @@ namespace WindowsFormsApplication1
 
         private void usuario_Load(object sender, EventArgs e)
         {
+            if (GuardadoSesion.Foto_Perfil != null)
+            {
+                pictureBox3.ImageLocation = GuardadoSesion.Foto_Perfil;
+            }
+            else
+            {
 
+                pictureBox3.ImageLocation = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "img", "user.png");
+            }
+            if (GuardadoSesion.id_tipo_usuario == 6 && datos.Rows.Count > 0)
+            {
+                DataRow fila = datos.Rows[0];
+                string tipo = fila["descripcion"].ToString();
+                lblNombre.Text = "Nombre: Anonymous";
+                lbl_tipo_us.Text = "Rol: " + tipo;
+
+            }
             if (datos.Rows.Count > 0)
             {
-                
+
                 DataRow fila = datos.Rows[0];
                 string dni = fila["DNI"].ToString();
                 string nombre = fila["nombre"].ToString();
@@ -39,21 +55,13 @@ namespace WindowsFormsApplication1
                 string usuario = fila["usuario"].ToString();
                 string tipo = fila["descripcion"].ToString();
 
-                // Por ejemplo, mostrar en labels
-                if (GuardadoSesion.Foto_Perfil != null)
-                {
-                    pictureBox3.ImageLocation = GuardadoSesion.Foto_Perfil;
-                }
-                else
-                {
-
-                    pictureBox3.ImageLocation = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "img", "user.png");
-                }
+                //mostrar en labels
                 lblDNI.Text = "DNI: " + dni;
                 lblEmail.Text = "Correo: " + email;
                 lblNombre.Text = "Nombre y apellido: " + nombre + " " + apellido;
                 lbl_tipo_us.Text = "Rol: " + tipo;
             }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -83,8 +91,8 @@ namespace WindowsFormsApplication1
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            
-            
+
+
         }
     }
 }

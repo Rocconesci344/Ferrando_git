@@ -47,6 +47,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_volver = new System.Windows.Forms.Button();
             this.btn_cerrarsesion = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -230,7 +231,7 @@
             this.btn_volver.Name = "btn_volver";
             this.btn_volver.Size = new System.Drawing.Size(75, 23);
             this.btn_volver.TabIndex = 24;
-            this.btn_volver.Text = "volver";
+            this.btn_volver.Text = "Volver";
             this.btn_volver.UseVisualStyleBackColor = true;
             this.btn_volver.Click += new System.EventHandler(this.btn_volver_Click);
             // 
@@ -250,6 +251,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(788, 394);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_cerrarsesion);
             this.Controls.Add(this.btn_volver);
             this.Controls.Add(this.panel2);
@@ -300,5 +302,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btn_volver;
         private System.Windows.Forms.Button btn_cerrarsesion;
+        private System.Windows.Forms.Button button1;
     }
 }
